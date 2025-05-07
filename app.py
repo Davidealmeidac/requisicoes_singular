@@ -3,14 +3,11 @@ import pandas as pd
 
 df = pd.read_excel("base_de_requisicoes.xlsx")
 
-# Renomear colunas para facilitar (caso necessário)
 df.columns = df.columns.str.strip()
 
-# Título
 st.set_page_config(layout="wide", page_title="Requisições Operacionais", page_icon="📋")
-st.title("📋 Requisições operacionais")
+st.title("📋 Requisições Operacionais")
 
-# Lista de filtros com campos desejados
 colunas_filtro = [
     'Solicitante',
     'Colaborador',
@@ -20,7 +17,6 @@ colunas_filtro = [
     'Data da solicitação'
 ]
 
-# Filtros em formato de lista com pesquisa
 filtros = {}
 for col in colunas_filtro:
     opcoes = df[col].dropna().unique().tolist()
@@ -28,11 +24,9 @@ for col in colunas_filtro:
     if selecao:
         filtros[col] = selecao
 
-# Aplicar os filtros
 for col, valores in filtros.items():
     df = df[df[col].isin(valores)]
 
-# Colunas finais da tabela
 colunas_exibicao = [
     'Solicitante',
     'Data da solicitação',
@@ -49,5 +43,4 @@ colunas_exibicao = [
 st.markdown("---")
 st.subheader("📑 Resultado das Requisições")
 
-# Exibir tabela (com rolagem horizontal para mobile)
 st.dataframe(df[colunas_exibicao], use_container_width=True)
