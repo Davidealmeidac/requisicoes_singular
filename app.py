@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-# Carregar a planilha
-df = pd.read_excel(r"C:\Users\davi.costa\Documents\base_de_requisicoes.xlsx")
+df = pd.read_excel("base_de_requisicoes.xlsx")
 
 # Renomear colunas para facilitar (caso necessário)
 df.columns = df.columns.str.strip()
