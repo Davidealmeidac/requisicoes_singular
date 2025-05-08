@@ -8,11 +8,11 @@ df.columns = df.columns.str.strip()
 
 st.set_page_config(layout="wide", page_title="Requisições Operacionais", page_icon="📋")
 
-col1, col2 = st.columns([3, 7])  # Ajuste os valores para controlar o tamanho relativo
+col1, col2 = st.columns([1, 8])  # Ajuste os valores para controlar o tamanho relativo
 
 with col1:
     imagem = Image.open("logo.png")
-    st.image(imagem, width=150)
+    st.image(imagem, width=70)
 
 with col2:
     st.title("Requisições Operacionais")
