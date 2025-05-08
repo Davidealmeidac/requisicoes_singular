@@ -18,13 +18,13 @@ df.columns = df.columns.str.strip()
 st.markdown(
     """
     <div style="display: flex; justify-content: center;">
-        <img src="data:image/png;base64,{}" width="100">
+        <img src="data:image/png;base64,{}" width="200">
     </div>
     """.format(imagem_to_base64(imagem)),
     unsafe_allow_html=True
 )
 
-st.markdown("<h1 style='text-align: center; margin-top: 10px;'>Requisições Operacionais</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='align-items: center; text-align: center; margin-top: 10px;'>Requisições Operacionais</h1>", unsafe_allow_html=True)
 
 st.markdown("---")
 
