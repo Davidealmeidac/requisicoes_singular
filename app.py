@@ -1,13 +1,21 @@
 import streamlit as st
 import pandas as pd
+from PIL import Image
 
 df = pd.read_excel("base_de_requisicoes.xlsx")
 
 df.columns = df.columns.str.strip()
 
 st.set_page_config(layout="wide", page_title="Requisições Operacionais", page_icon="📋")
-st.title("📋 Requisições Operacionais")
 
+col1, col2 = st.columns([3, 7])  # Ajuste os valores para controlar o tamanho relativo
+
+with col1:
+    imagem = Image.open("logo.png")
+    st.image(imagem, width=150)
+
+with col2:
+    st.title("Requisições Operacionais")
 colunas_filtro = [
     'Solicitante',
     'Colaborador',
