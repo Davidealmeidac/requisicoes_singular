@@ -4,21 +4,17 @@ from PIL import Image
 from io import BytesIO
 import base64
 
-# Função para converter imagem em base64
 def imagem_to_base64(img):
     buffered = BytesIO()
     img.save(buffered, format="PNG")
     return base64.b64encode(buffered.getvalue()).decode()
 
-# Configuração da página
 st.set_page_config(layout="wide", page_title="Requisições Operacionais", page_icon="📋")
 
-# Carrega a logo e o dataframe
 imagem = Image.open("logo.png")
 df = pd.read_excel("base_de_requisicoes.xlsx")
 df.columns = df.columns.str.strip()
 
-# --- Logo centralizada ---
 st.markdown(
     """
     <div style="display: flex; justify-content: center;">
@@ -28,13 +24,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --- Título centralizado ---
 st.markdown("<h1 style='text-align: center; margin-top: 10px;'>Requisições Operacionais</h1>", unsafe_allow_html=True)
 
-# Linha divisória (opcional)
 st.markdown("---")
 
-# --- Filtros e tabela (ocupando a largura total) ---
 colunas_filtro = [
     'Solicitante',
     'Colaborador',
@@ -51,11 +44,9 @@ for col in colunas_filtro:
     if selecao:
         filtros[col] = selecao
 
-# Aplica filtros
 for col, valores in filtros.items():
     df = df[df[col].isin(valores)]
 
-# Exibe os resultados
 colunas_exibicao = [
     'Solicitante',
     'Data da solicitação',
