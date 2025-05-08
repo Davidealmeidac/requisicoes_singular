@@ -8,14 +8,14 @@ df.columns = df.columns.str.strip()
 
 st.set_page_config(layout="wide", page_title="Requisições Operacionais", page_icon="📋")
 
-col1, col2 = st.columns([1, 8])  # Ajuste os valores para controlar o tamanho relativo
+imagem = Image.open("logo.png")
 
+col1, col2 = st.columns([1, 1])
 with col1:
-    imagem = Image.open("logo.png")
-    st.image(imagem, width=70)
-
+    st.image(imagem, width=100)
 with col2:
-    st.title("Requisições Operacionais")
+    st.markdown("<h1 style='margin-bottom: 0;'>Requisições<br>Operacionais</h1>", unsafe_allow_html=True)
+
 colunas_filtro = [
     'Solicitante',
     'Colaborador',
